@@ -7,23 +7,13 @@ import { populateFolderUl } from "./domFuncs.js"
 export const rootArray = () => {
     let rootArray = []
 
-    function pushFolderToRoot(obj) {
-        rootArray.push(obj)
-    }
-
-    function getAllFolders() {
-        let allFolders = []
-        for(let item of rootArray){
-            allFolders.push(item)
-        }
-        return allFolders
-    }
-
+    // remove a folder From local storage and update root array.
     function removeFromArray(id) {
         removeFolderFromStorage(id)
         updateRootArr()
     }
 
+    // find a specific folder with ID
     function getSpecificFolder(id) {
         for (let item of rootArray) {
             if (item.getId() === id) {
@@ -32,6 +22,8 @@ export const rootArray = () => {
         }
     }
 
+    /* This function clear root Array, get all folders from local storage then save those
+    in root array with methods added to them. Then update the Ul in DOM*/
     function updateRootArr() {
         rootArray = []
         let folders = getDataFromStorage()
@@ -42,10 +34,11 @@ export const rootArray = () => {
             }
             rootArray.push(folder)
         }
+        populateFolderUl(rootArray)
     }
 
 
     return {
-        removeFromArray, getAllFolders, pushFolderToRoot, getSpecificFolder, updateRootArr
+        removeFromArray, getAllFolders, getSpecificFolder, updateRootArr
     }
 }

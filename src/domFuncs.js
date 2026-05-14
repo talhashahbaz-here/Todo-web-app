@@ -1,4 +1,3 @@
-
 const folderList = document.getElementById('all-folders')
 const addFolderBtn = document.getElementById('add-folder')
 const folderModal = document.getElementById('folder-modal')
@@ -12,12 +11,11 @@ const addTaskSubmit = document.getElementById('add-task-submit')
 
 
 
-
+// Fill the Ul with folder names whenever the root array is updated
 function populateFolderUl(rootArr) {
     const folderList = document.getElementById('all-folders')
     folderList.replaceChildren()
-    let allFolders = rootArr.getAllFolders()
-    for (let item of allFolders) {
+    for (let item of rootArr) {
         let li = document.createElement('li')
         li.classList.add('folder')
         li.id = item.id;
@@ -26,6 +24,8 @@ function populateFolderUl(rootArr) {
     }
 }
 
+
+// when a folder is selected, fill the content window with all task from the seleted Folder ( not complete yet )
 function showFolderData(id, arr) {
     const folderNameHeading = document.getElementById('current-active-folder');
     const header = document.getElementById('header')

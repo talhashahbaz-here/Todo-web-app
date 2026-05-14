@@ -4,12 +4,14 @@ import { rootArray } from "./rootArray.js";
 import { Folder, folderMethods } from "./folders.js";
 import { getDataFromStorage, initializeLocalStorage, addFolderToStorage, addTasktoStorage } from "./storage.js";
 import { createFolder, createTask } from "./createFuncs.js";
-import { populateFolderUl, folderList, addFolderBtn, addFolderSubmit, folderModal, sideBar, deleteFolderButton, showFolderData, addTaskBtn, taskModal, addTaskSubmit } from "./domFuncs.js";
+import { folderList, addFolderBtn, addFolderSubmit, folderModal, sideBar, deleteFolderButton, showFolderData, addTaskBtn, taskModal, addTaskSubmit } from "./domFuncs.js";
 
 console.log("Working fine")
 
 let currentActiveFolder
 
+
+// First time website open check, if there are no folders in storage, add a defualt.
 if (!localStorage.getItem('folders')) {
     initializeLocalStorage()
     let defaultFolder = new Folder('Default Folder');
@@ -17,9 +19,9 @@ if (!localStorage.getItem('folders')) {
 }
 
 
+// setup a root array which will have all folders and there task with their method
 let rootArr = rootArray();
 rootArr.updateRootArr();
-populateFolderUl(rootArr)
 
 
 const body = document.body
@@ -36,7 +38,6 @@ body.addEventListener('click', (e) => {
             createFolder(folderName.value)
             rootArr.updateRootArr()
             folderModal.close()
-            populateFolderUl(rootArr)
             document.getElementById('folder-form').reset()
             document.getElementById('header').classList.add('hidden')
             document.getElementById('tip-heading').classList.remove('hidden')
@@ -61,7 +62,6 @@ body.addEventListener('click', (e) => {
 
     else if (e.target === deleteFolderButton) {
         rootArr.removeFromArray(currentActiveFolder);
-        populateFolderUl(rootArr);
         document.getElementById('header').classList.add('hidden')
     }
 
@@ -88,29 +88,3 @@ body.addEventListener('click', (e) => {
         }
     }
 })
-
-
-
-
-
-
-
-
-addTasktoStorage()
-
-
-
-// const createNewTask = (folderToPushName = 'defaultFolder') => {
-//     const title = prompt('Enter a title:')
-//     const desc = prompt('Enter a Description:')
-//     const dueDate = prompt('Enter a Due Date:', 'low')
-//     const priority = prompt('Enter a Priority (Default is Low):')
-
-//     const newTask = new taskItem(title, desc, dueDate, priority)
-    
-// }
-
-
-// window.rootArr = rootArr;
-// window.createNewTask = createNewTask;
-// window.createFolder = createFolder;
