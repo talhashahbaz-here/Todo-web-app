@@ -39,6 +39,6 @@ export const rootArray = () => {
 
 
     return {
-        removeFromArray, getAllFolders, getSpecificFolder, updateRootArr
+        removeFromArray, getSpecificFolder, updateRootArr
     }
 }
