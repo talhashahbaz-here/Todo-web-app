@@ -1,6 +1,8 @@
 // webpack.config.js
 import path from "node:path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import webpack from "webpack";
+const locales = ["en-US", "fr"];
 
 
 export default {

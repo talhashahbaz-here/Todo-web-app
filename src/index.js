@@ -51,7 +51,7 @@ body.addEventListener('click', (e) => {
     else if (e.target === addFolderSubmit) {
         e.preventDefault()
         const folderName = document.getElementById('folderName').value
-        if (folderName && folderName.trim() > 0 ) { // Check if user entered a name and name is not just spaces. 
+        if (folderName && folderName.trim().length > 0 ) { // Check if user entered a name and name is not just spaces. 
             const newFolder = createFolder(folderName)
             addFolderToStorage(newFolder); // store newly made folder to storage
             rootArr.updateRootArr() // update root array from updated local storage
