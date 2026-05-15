@@ -19,10 +19,10 @@ function getDataFromStorage() {
 
 
 // Add new task to local storage
-function addTasktoStorage(task, id) {
+function addTaskToStorage(task, folderId) {
     let folders = getDataFromStorage()
     for (let folder of folders) {
-        if (folder.id === id) {
+        if (folder.id === folderId) {
             folder.tasks.push(task)
         }
     }
@@ -49,7 +49,7 @@ function removeTaskFromStorage(folderId, taskId){
         requiredFolder.tasks = requiredFolder.tasks.filter((taskItem) => taskItem.id !== taskId)
     }
 
-    localStorage.setItem('folders', folders)
+    localStorage.setItem('folders', JSON.stringify(folders))
 }
 
-export { initializeLocalStorage, addFolderToStorage, getDataFromStorage, addTasktoStorage, removeFolderFromStorage }
+export { initializeLocalStorage, addFolderToStorage, getDataFromStorage, addTaskToStorage, removeFolderFromStorage, removeTaskFromStorage }

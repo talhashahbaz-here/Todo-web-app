@@ -7,6 +7,14 @@ import { populateFolderUl } from "./domFuncs.js"
 export const rootArray = () => {
     let rootArray = []
 
+    function getAllFolders(){
+        let allFolders = []
+        for(let folder of rootArray){
+            allFolders.push(folder)
+        }
+
+        return allFolders;
+    }
     // remove a folder From local storage and update root array.
     function removeFromArray(id) {
         removeFolderFromStorage(id)
@@ -34,11 +42,10 @@ export const rootArray = () => {
             }
             rootArray.push(folder)
         }
-        populateFolderUl(rootArray)
     }
 
 
     return {
-        removeFromArray, getSpecificFolder, updateRootArr
+        removeFromArray, getAllFolders, getSpecificFolder, updateRootArr
     }
 }

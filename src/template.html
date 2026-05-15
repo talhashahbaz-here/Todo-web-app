@@ -35,8 +35,8 @@
                     <button id="add-task-btn" class="btn">Add Task</button>
                 </div>
             </div>
-
-            <div class="task-container">
+            <h2 id="tip-heading">Select a Folder</h2>
+            <div id="task-container">
                 <!-- <div class="task-item">
 
                     <div class="task-info">
@@ -47,11 +47,11 @@
 
                     <div class="button-group">
                         <button class="btn" id="btn-complete">Mark Complete</button>
-                        <button class="btn" id="btn-complete">Delete Task</button>
+                        <button class="btn" id="btn-task-delete">Delete Task</button>
                     </div>
                 </div> -->
 
-                <h2 id="tip-heading">Select a Folder</h2>
+                
             </div>
 
             <dialog id="task-modal">
@@ -73,7 +73,7 @@
                         <input type="radio" name="taskPriority" id="medium-priority" value="mediumPriority" required>
                     </div>
                     <div class="radio-group">
-                        <label for="low-priority">Priority</label>
+                        <label for="low-priority">Low</label>
                         <input type="radio" name="taskPriority" id="low-priority" value="lowPriority" required>
                     </div>
                     <button id="add-task-submit" class="btn">Add Task</button>

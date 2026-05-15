@@ -4,11 +4,11 @@ import { getRandomId } from "./helperFunctions.js"
 
 
 class taskItem {
-    constructor(title, description, due, priority) {
+    constructor(title, description, dueDate, priority) {
         this.id = getRandomId()
         this.title = title
         this.description = description
-        this.due = due
+        this.dueDate = dueDate
         this.priority = priority
         this.isCompleted = false
     }
@@ -16,6 +16,22 @@ class taskItem {
 
 
 const taskItemMethods = () => ({
+
+    getTitle(){
+        return this.title
+    },
+    getDesc(){
+        return this.description
+    },
+    getDueDate(){
+        return this.dueDate
+    },
+    getPriority(){
+        return this.priority
+    },
+    getId(){
+        return this.id
+    },
 
     editTitle(newTitle) {
         this.title = newTitle;
@@ -36,15 +52,6 @@ const taskItemMethods = () => ({
     markComplete() {
         this.isCompleted = true
     },
-
-    printDetails() {
-        console.log(this.title);
-        console.log(this.description);
-        console.log(this.due);
-        console.log(this.priority);
-        console.log(this.isCompleted)
-
-    }
 })
 
 
